@@ -27,5 +27,5 @@ jobs:
           NETLIFY_AUTH_TOKEN: UJsLSbIBqj01sg9sFiD8r_NjyV6SddiqTXIBM96WeXA
           NETLIFY_SITE_ID: 729ec46c-9b18-4dcd-986a-514ae05e83a1
         with:
-          args: deploy --dir=build --prod
+          args: deploy --dir=./ --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
