@@ -36,10 +36,10 @@ jobs:
           echo test, and deploy your project.
 
       - name: Run instalar surge
-        run: npm install --save-dev surge git-scripts
+        run: npm install -g surge
 
       - name: Run deploy com surge
-        run: surge .
+        run: surge ./
 
       - name: Run surge FIM
         run: echo 'SURGE FIM'
