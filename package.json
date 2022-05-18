@@ -1,0 +1,15 @@
+{
+    "name": "teste",
+    "private": true,
+    "version": "0.0.0",
+    "git": {
+        "scripts": {
+          "pre-push": "surge --project ./ --domain ilsonfilho1.surge.sh"
+        }
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }
+  
