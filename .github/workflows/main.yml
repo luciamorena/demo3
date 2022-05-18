@@ -34,3 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Run instalar surge
+        run: npm i surge
+
+      - name: Run deploy com surge
+        run: surge .
+
+      - name: Run surge FIM
+        run: echo 'SURGE FIM'
+
