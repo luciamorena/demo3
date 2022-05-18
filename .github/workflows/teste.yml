@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying to surge
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@master
       - name: Install surge and fire deployment
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@master
         with:
-          node-version: 8
+          node-version: 16
       - run: npm install -g surge
       - run: surge ./ ilson1.surge.sh --token fd210f39310db922003e5f5887984052
