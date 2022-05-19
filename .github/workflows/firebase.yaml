@@ -1,18 +1,27 @@
 name: Deploy Firebase
 
+# on:
+#   push:
+#     tags:
+#       - release-production-*
+
 'on':
   push:
     branches:
       - main
+
 jobs:
-  build_and_deploy:
+  deploy_to_firebase_hosting:
+
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-      - run: echo "npm ci && npm run build"
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout the repository
+        uses: actions/checkout@master
+      
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
-          projectId: projeto-1-c300f
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
