@@ -31,7 +31,7 @@ jobs:
   test-2:
     # if: false 
     runs-on: ubuntu-20.04
-    needs: [teste-1]
+    needs: [test-1]
 
     strategy:
       matrix:
