@@ -44,4 +44,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo 'TESTE GLOBAL - SEMPRE'
+
+  rodar-baseado:
+    if: ${{ always() }}
+    runs-on: ubuntu-20.04
+    needs: [teste-global,rodar-falhou]
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: echo 'TESTE BASEADO EM - TESTE GLOBAL + FALHOU'
     
