@@ -4,12 +4,11 @@ on: [push]
 
 jobs:
   teste-global:
-    if: false 
-    # if: ${{ false }}
     runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
+    - run: ls -la
     - run: echo 'FIM DO TESTE GLOBAL'
 
   rodar-sucesso:
