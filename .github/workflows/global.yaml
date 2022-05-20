@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   teste-global:
-    # if: false 
+    if: false 
     # if: ${{ false }}
     runs-on: ubuntu-20.04
 
