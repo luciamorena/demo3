@@ -16,7 +16,7 @@ jobs:
     - run: echo 'FIM DO TESTE GLOBAL'
 
   rodar-sucesso:
-    if: ${{ Success() }}
+    if: ${{ success() }}
     runs-on: ubuntu-20.04
     needs: teste-global
 
@@ -35,3 +35,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: echo 'TESTE GLOBAL - FALHOU'
+
+  rodar-sempre:
+    if: ${{ always() }}
+    runs-on: ubuntu-20.04
+    needs: teste-global
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: echo 'TESTE GLOBAL - SEMPRE'
+    
