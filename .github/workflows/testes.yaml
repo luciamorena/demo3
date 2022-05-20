@@ -29,7 +29,7 @@ jobs:
     - run: echo 'FIM DOS TESTES 1'
 
   test-2:
-    # if: false 
+    if: false 
     runs-on: ubuntu-20.04
 
     strategy:
