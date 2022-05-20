@@ -1,6 +1,6 @@
 name: CI TESTES
 
-on: [push]
+on: [push] 
 
 # on:
 #   push:
