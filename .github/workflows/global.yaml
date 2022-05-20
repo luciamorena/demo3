@@ -1,6 +1,10 @@
 name: CI GLOBAL
 
 on:
+  push:
+    branches:
+      - main
+on:
   workflow_run:
     workflows: [Build]
     types: [completed]
@@ -17,7 +21,7 @@ jobs:
     steps:
       - run: echo 'The triggering workflow failed'
 
-      
+
 # on:
 #   workflow_run:
 #     workflows: [Build]
