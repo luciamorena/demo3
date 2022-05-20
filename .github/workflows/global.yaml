@@ -1,9 +1,10 @@
 name: CI CONDICIONAL
 
-on: [push]
+on:
   workflow_run:
-    workflows: [teste-global]
-    types: [completed]
+    workflows: [push]
+    types:
+      - completed
 
 jobs:
   teste-global:
