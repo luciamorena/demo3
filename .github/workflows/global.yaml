@@ -13,7 +13,6 @@ jobs:
     - run: echo 'FIM DO TESTE GLOBAL'
 
   rodar-sucesso:
-    if: true 
     runs-on: ubuntu-20.04
     needs: teste-global
 
