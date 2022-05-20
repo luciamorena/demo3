@@ -9,7 +9,7 @@ on: [push]
 jobs:
   tests:
     uses: ./.github/workflows/test.yaml  # use the callable tests job to run tests
-  rodar:
+  deploy-1:
     # if: false 
     # if: ${{ false }}
     runs-on: ubuntu-20.04

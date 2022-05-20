@@ -7,7 +7,7 @@ on: [workflow_call]
 #   pull_request:
 
 jobs:
-  rodar:
+  test-1:
     # if: false 
     # if: ${{ false }}
     runs-on: ubuntu-20.04
