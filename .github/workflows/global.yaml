@@ -1,56 +1,104 @@
-name: CI GLOBAL
+# name: CI GLOBAL
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   teste-global:
+#     runs-on: ubuntu-20.04
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: npm run teste
+#     - run: ls -la
+#     - run: echo 'FIM DO TESTE GLOBAL'
+
+#   rodar-sucesso:
+#     if: ${{ success() }}
+#     runs-on: ubuntu-20.04
+#     needs: teste-global
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE GLOBAL - SUCESSO'
+
+#   rodar-falhou:
+#     if: ${{ failure() }}
+#     #  if: ${{ job.status == 'failure' }}
+#     # if: ${{ github.action_status == 'failure' }}
+
+#     runs-on: ubuntu-20.04
+#     needs: teste-global
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE GLOBAL - FALHOU'
+
+#   rodar-sempre:
+#     if: ${{ always() }}
+#     runs-on: ubuntu-20.04
+#     needs: teste-global
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE GLOBAL - SEMPRE'
+
+#   rodar-baseado:
+#     if: ${{ always() }}
+#     runs-on: ubuntu-20.04
+#     needs: [teste-global,rodar-sucesso]
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE BASEADO EM - TESTE GLOBAL + FALHOU'
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+name: Experiment
+on: [push]
 
 jobs:
-  teste-global:
-    runs-on: ubuntu-20.04
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - run: npm run teste
-    - run: ls -la
-    - run: echo 'FIM DO TESTE GLOBAL'
+    - name: Sleep and Run
+      run: |
+        echo "Sleeping for 10"
+        sleep 10
 
-  rodar-sucesso:
-    if: ${{ success() }}
-    runs-on: ubuntu-20.04
-    needs: teste-global
-
-    steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE GLOBAL - SUCESSO'
-
-  rodar-falhou:
-    if: ${{ failure() }}
-    #  if: ${{ job.status == 'failure' }}
-    # if: ${{ github.action_status == 'failure' }}
-
-    runs-on: ubuntu-20.04
-    needs: teste-global
+  job2:
+    name: Job 2
+    needs: job1
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE GLOBAL - FALHOU'
+    - name: Dependant is Running
+      run: |
+        echo "Completed job 2, but triggering failure"
+        exit 1
 
-  rodar-sempre:
-    if: ${{ always() }}
-    runs-on: ubuntu-20.04
-    needs: teste-global
-
-    steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE GLOBAL - SEMPRE'
-
-  rodar-baseado:
-    if: ${{ always() }}
-    runs-on: ubuntu-20.04
-    needs: [teste-global,rodar-sucesso]
+  job3:
+    name: Job 3
+    needs: job2
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE BASEADO EM - TESTE GLOBAL + FALHOU'
-    
+    - name: Will never run
+      run: |
+        echo "If you can read this, the experiment failed"
