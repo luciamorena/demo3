@@ -8,7 +8,7 @@ on: [push]
 
 jobs:
   tests:
-    uses: ./.github/workflows/test.yml  # use the callable tests job to run tests
+    uses: ./.github/workflows/test.yaml  # use the callable tests job to run tests
   rodar:
     # if: false 
     # if: ${{ false }}
