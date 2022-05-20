@@ -1,6 +1,6 @@
-name: CI CONDICIONAL
+name: CI GLOBAL
 
-on:
+on: [push]
   workflow_run:
     workflows: [Build]
     types: [completed]
