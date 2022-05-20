@@ -48,7 +48,7 @@ jobs:
   rodar-baseado:
     if: ${{ always() }}
     runs-on: ubuntu-20.04
-    needs: [teste-global,rodar-falhou]
+    needs: [teste-global,rodar-sucesso]
 
     steps:
     - uses: actions/checkout@v2
