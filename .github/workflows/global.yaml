@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    # - run: npm run teste
+    - run: npm run teste
     - run: ls -la
     - run: echo 'FIM DO TESTE GLOBAL'
 
@@ -26,6 +26,9 @@ jobs:
 
   rodar-falhou:
     if: ${{ failure() }}
+    #  if: ${{ job.status == 'failure' }}
+    # if: ${{ github.action_status == 'failure' }}
+
     runs-on: ubuntu-20.04
     needs: teste-global
 
