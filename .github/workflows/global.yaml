@@ -6,33 +6,51 @@ on:
     types: [completed]
 
 jobs:
-  teste-global:
-    runs-on: ubuntu-20.04
-
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-    - uses: actions/checkout@v2
-    # - run: npm run teste
-    - run: ls -la
-    - run: echo 'FIM DO TESTE GLOBAL'
-
-  rodar-sucesso:
-    runs-on: ubuntu-20.04
-    # needs: teste-global
-    if: ${{ github.event.workflow_run.conclusion == 'Success' }}
-
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE GLOBAL - SUCESSO'
+      - run: echo 'The triggering workflow failed'
 
-  rodar-falhou:
-    # if: ${{ failure() }}
-    runs-on: ubuntu-20.04
-    # needs: teste-global
-    if: ${{ github.event.workflow_run.conclusion == 'Failure' }}
+      
+# on:
+#   workflow_run:
+#     workflows: [Build]
+#     types: [completed]
 
-    steps:
-    - uses: actions/checkout@v2
-    - run: echo 'TESTE GLOBAL - FALHOU'
+# jobs:
+#   teste-global:
+#     runs-on: ubuntu-20.04
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     # - run: npm run teste
+#     - run: ls -la
+#     - run: echo 'FIM DO TESTE GLOBAL'
+
+#   rodar-sucesso:
+#     runs-on: ubuntu-20.04
+#     # needs: teste-global
+#     if: ${{ github.event.workflow_run.conclusion == 'Success' }}
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE GLOBAL - SUCESSO'
+
+#   rodar-falhou:
+#     # if: ${{ failure() }}
+#     runs-on: ubuntu-20.04
+#     # needs: teste-global
+#     if: ${{ github.event.workflow_run.conclusion == 'Failure' }}
+
+#     steps:
+#     - uses: actions/checkout@v2
+#     - run: echo 'TESTE GLOBAL - FALHOU'
 
 
 
