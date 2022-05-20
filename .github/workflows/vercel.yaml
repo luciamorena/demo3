@@ -1,0 +1,26 @@
+name: Deploy Vercel
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      #  your build commands
+      # - run: |
+      #    ng build --prod
+      - uses: amondnet/vercel-action@v20 #deploy
+        with:
+          vercel-token: 'nEeZEiNspPr1msz9l6FEuJhz' # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          vercel-args: '--prod' #Optional
+          vercel-org-id: 'XOET2FYSeZswFCUZFq3RrDLB'  #Required
+          vercel-project-id: 'prj_7ZJHdhuAADz4tC8C4YoQtZwFLIl0' #Required 
+          working-directory: ./
+          # vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          # github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          # vercel-args: '--prod' #Optional
+          # vercel-org-id: ${{ secrets.ORG_ID}}  #Required
+          # vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
+          # working-directory: ./
