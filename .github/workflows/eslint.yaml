@@ -1,0 +1,31 @@
+name: CI ESLINT
+on: [push]
+
+jobs:
+  rodar-1:
+    name: JOB RODAR 1
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: STEP 1
+        run: uname -a
+
+      - name: STEP 2
+        run: ls -la
+
+      - name: STEP 3
+        run: echo 'FIM DOS STEPS 1'
+
+  rodar-2:
+    name: JOB RODAR 2
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: STEP 1
+        run: uname -a
+
+      - name: STEP 2
+        run: ls -la
+
+      - name: STEP 3
+        run: echo 'FIM DOS STEPS 2'
