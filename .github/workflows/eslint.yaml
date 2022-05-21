@@ -40,7 +40,7 @@ jobs:
         run: uname -a
 
       - name: STEP 2
-        run: ls -la ../../../../../../
+        run: ls -la ../../../../../../home/
 
       - name: STEP 3
         run: echo 'FIM DOS STEPS 3'
