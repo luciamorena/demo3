@@ -43,4 +43,8 @@ jobs:
         run: ls -la ../../../../../../home/
 
       - name: STEP 3
-        run: echo 'FIM DOS STEPS 3'
+        run: | 
+          echo 'PRIMEIRA LINHA'
+          ls -la
+          echo 'SEGUNDA LINHA'
+          echo 'FIM DOS STEPS 3'
